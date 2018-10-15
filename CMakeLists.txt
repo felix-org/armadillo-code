@@ -16,7 +16,7 @@
 
 
 
-cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
 
 project(armadillo CXX C)
 include(CheckIncludeFileCXX)
@@ -156,8 +156,10 @@ if(APPLE)
   
   set(ARMA_OS macos)
   
-  set(ARMA_USE_LAPACK true)
-  set(ARMA_USE_BLAS   true)
+  set(ARMA_USE_LAPACK         true)
+  set(ARMA_USE_BLAS           true)
+  set(ARMA_BLAS_CBLAS         true)
+  set(ARMA_BLAS_NO_UNDERSCORE true)
   
   set(ARMA_LIBS ${ARMA_LIBS} "-framework Accelerate")  # or "-framework accelerate" ?
   message(STATUS "MacOS X detected. Added '-framework Accelerate' to compiler flags")

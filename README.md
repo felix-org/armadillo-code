@@ -30,7 +30,7 @@ Copyright 2017-2018 Data61, CSIRO
 7.  [Windows: Installation](#7-windows-installation)
 8.  [Windows: Compiling and Linking](#8-windows-compiling-and-linking)
 
-9.  [Support for OpenBLAS and Intel MKL](#9-support-for-openblas-and-intel-mkl)
+9.  [Support for OpenBLAS and Intel MKL and Accelerate](#9-support-for-openblas-and-intel-mkl-and-accelerate)
 10. [Support for ATLAS](#10-support-for-atlas)
 11. [Support for C++11 / C++14 Features](#11-support-for-c11-c14-features)
 12. [Support for OpenMP](#12-support-for-openmp)
@@ -297,7 +297,7 @@ we strongly recommend using a Linux based operating system:
 
 ---
 
-### 9: Support for OpenBLAS and Intel MKL
+### 9: Support for OpenBLAS and Intel MKL and Accelerate
 
 Armadillo can use OpenBLAS or Intel Math Kernel Library (MKL) as high-speed
 replacements for BLAS and LAPACK. In essence this involves linking with the
@@ -341,6 +341,10 @@ the CMake based installation. Comment out the lines containing:
     INCLUDE(ARMA_FindMKL)  
     INCLUDE(ARMA_FindACMLMP)  
     INCLUDE(ARMA_FindACML)  
+
+Armadillo can use Accelerate on OS X and iOS. In order to avoid warning
+about private apis, ARMA_BLAS_CBLAS=1 and  ARMA_BLAS_NO_UNDERSCORE=1 must
+be set. If using cmake, these will be set automatically for you.
 
 ---
 
